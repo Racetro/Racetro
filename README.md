@@ -1,16 +1,37 @@
-## Hi there 👋
+# ÖZKAN
 
-<!--
-**Racetro/Racetro** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## Who am I?
+- MECH ENG Student
+- Formula Student Alumnus, Scrutineer and Judge
+- PCB Designer for hire
 
-Here are some ideas to get you started:
+## Experience
+- Defence Industry
+- Automotive
+- Consumer Electronics
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Specialty
+- Electric Powertrains
+  - Battery Modelling
+  - HV Architecture
+  - BMS
+  - Functional Safety
+  - CAN/LIN
+
+## Programs I'm Familiar With:
+- EDA
+  - Altium Designer
+  - KiCad
+  - Proteus 8
+- Simulation
+  - Matlab/Simulink
+  - LTSpice
+  - ANSYS
+- CAD
+  - Catia
+  - Solidworks
+  - Fusion
+- Programming
+  - C
+  - C++
+ 
