@@ -1,1 +1,690 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///C:/Users/mami7/Downloads/index.html#projects -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Özkan — Hardware Engineer</title>
+  <link href="./Özkan — Hardware Engineer_files/css2" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #1e1e1e;
+      --accent: #e8ff00;
+      --accent2: #ff4d00;
+      --text: #e8e8e8;
+      --muted: #555;
+      --mono: 'IBM Plex Mono', monospace;
+      --display: 'Syne', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* GRID OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-logo {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 120px 40px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+
+    .hero-name {
+      font-family: var(--display);
+      font-size: clamp(56px, 10vw, 130px);
+      font-weight: 800;
+      line-height: 0.92;
+      letter-spacing: -3px;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.35s;
+    }
+
+    .hero-name span {
+      color: var(--accent);
+      display: block;
+    }
+
+    .hero-desc {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.5s;
+    }
+
+    .hero-desc strong { color: var(--text); font-weight: 500; }
+
+    .hero-cta {
+      margin-top: 48px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.65s;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .hero-counter {
+      position: absolute;
+      right: 40px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 0.9s;
+    }
+
+    .counter-item {
+      text-align: right;
+    }
+
+    .counter-num {
+      font-family: var(--display);
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .counter-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* SECTIONS */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 100px 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 120px;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .project-card {
+      background: var(--bg);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px;
+      height: 0;
+      background: var(--accent);
+      transition: height 0.3s ease;
+    }
+
+    .project-card:hover { background: var(--surface); }
+    .project-card:hover::before { height: 100%; }
+
+    .project-tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .project-title {
+      font-family: var(--display);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 10px;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .tag-accent {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .skill-cell {
+      background: var(--bg);
+      padding: 28px;
+      transition: background 0.2s;
+    }
+
+    .skill-cell:hover { background: var(--surface); }
+
+    .skill-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .skill-desc {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ABOUT */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .about-text p + p { margin-top: 20px; }
+    .about-text strong { color: var(--text); font-weight: 500; }
+
+    .about-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .fact-row {
+      background: var(--bg);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .fact-key { color: var(--muted); }
+    .fact-val { color: var(--text); text-align: right; }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .contact-card {
+      background: var(--bg);
+      padding: 32px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.2s;
+    }
+
+    .contact-card:hover { background: var(--surface); }
+
+    .contact-icon { font-size: 24px; margin-bottom: 12px; }
+
+    .contact-platform {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .contact-handle { font-size: 12px; color: var(--muted); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CURSOR DOT */
+    .cursor {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease;
+      mix-blend-mode: difference;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-counter { display: none; }
+      section { padding: 60px 20px; }
+      .about-layout { grid-template-columns: 1fr; gap: 40px; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+<style type="text/css" id="operaUserStyle"></style></head>
+<body>
+
+  <div class="cursor" id="cursor" style="left: 1117px; top: 319px;"></div>
+
+  <nav>
+    <div class="nav-logo">özkan</div>
+    <ul class="nav-links">
+      <li><a href="file:///C:/Users/mami7/Downloads/index.html#projects">Projects</a></li>
+      <li><a href="file:///C:/Users/mami7/Downloads/index.html#skills">Skills</a></li>
+      <li><a href="file:///C:/Users/mami7/Downloads/index.html#about">About</a></li>
+      <li><a href="file:///C:/Users/mami7/Downloads/index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-tag">// Engineer &amp; Founder</div>
+    <h1 class="hero-name">Muhammet Yusuf<span>ÖZKAN</span>
+    </h1>
+    <p class="hero-desc">
+      <strong>Power electronics, embedded systems, and motor control.</strong><br>
+      Co-founder of Torq Drive and Upshift SiM. BMS researcher under TÜBİTAK.
+      Building hardware that punches above its price point.
+    </p>
+    <div class="hero-cta">
+      <a href="file:///C:/Users/mami7/Downloads/index.html#projects" class="btn btn-primary">View Projects</a>
+      <a href="file:///C:/Users/mami7/Downloads/cv_ozkan.pdf" class="btn" target="_blank">Download CV</a>
+    </div>
+
+    
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">01 — Projects</div>
+    <div class="projects-grid reveal visible">
+
+      <a href="file:///C:/Users/mami7/Downloads/index.html#" class="project-card" target="_blank">
+        <div class="project-tag">Motor Control · Active</div>
+        <div class="project-title">Torq Drive</div>
+        <div class="project-desc">
+          Direct-drive sim racing wheelbase with custom BLDC controller and ML coaching integration. Proprietary communication protocol exposing FFB, thermals, and wheel slip data.
+        </div>
+        <div class="project-stack">
+          <span class="tag tag-accent">BLDC</span>
+          <span class="tag">FOC</span>
+          <span class="tag">KiCad</span>
+          <span class="tag">STM32</span>
+          
+        </div>
+      </a>
+
+      <a href="https://github.com/yourusername/upshift-motion" class="project-card" target="_blank">
+        <div class="project-tag">Power Electronics · Active</div>
+        <div class="project-title">Motion Rig Driver</div>
+        <div class="project-desc">
+          24V dual brushed DC motor driver for sim racing motion rigs.
+        </div>
+        <div class="project-stack">
+          <span class="tag tag-accent">POWER ELECTRONICS</span>
+          <span class="tag">AVR</span>
+          <span class="tag">PCB Layout</span>
+          <span class="tag">24V</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/yourusername/bms" class="project-card" target="_blank">
+        <div class="project-tag">Battery Systems · Research</div>
+        <div class="project-title">BMS / SOC / SOH</div>
+        <div class="project-desc">
+          Battery management system with state-of-charge and state-of-health algorithm research. Conducted under TÜBİTAK funding.
+        </div>
+        <div class="project-stack">
+          <span class="tag tag-accent">TÜBİTAK</span>
+          <span class="tag">Kalman Filter</span>
+          <span class="tag">Li-Ion</span>
+          <span class="tag">Embedded C</span>
+        </div>
+      </a>
+
+      <a href="https://www.upshiftsim.com/" class="project-card">
+        <div class="project-tag">Sim Racing · Product</div>
+        <div class="project-title">Upshift SIM</div>
+        <div class="project-desc">
+          Custom sim racing cockpits built for enthusiasts.
+        </div>
+        <div class="project-stack">
+          <span class="tag tag-accent">~100 Units</span>
+          <span class="tag">Laser Cut</span>
+          <span class="tag">CNC Bending</span>
+          <span class="tag">B2B</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">02 — Skills</div>
+    <div class="skills-grid reveal visible">
+      <div class="skill-cell">
+        <div class="skill-name">PCB Design</div>
+        <div class="skill-desc">HV/LV, 2–8 layer, KiCad, Power Electronics , PDN analysis</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Motor Control</div>
+        <div class="skill-desc">BLDC, FOC, brushed DC H-bridge, gate drive, AEC-Q</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Embedded Firmware</div>
+        <div class="skill-desc">STM32, ATmega, C/C++, CAN, UART, SPI, I2C</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Battery Systems</div>
+        <div class="skill-desc">BMS design, SOC/SOH algorithms, Kalman filtering, Li-Ion</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Power Electronics</div>
+        <div class="skill-desc">MOSFET dynamics, gate charge, inductor design, EMC basics</div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-name">Formula Student</div>
+        <div class="skill-desc">HV/LV/Battery scrutineer, Judge , EV powertrain, team mentoring</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">03 — About</div>
+    <div class="about-layout">
+      <div class="about-text reveal visible">
+        <p>
+          Final-year Mechanical Engineering Student with an <strong>unmatched cross-disciplinary profile</strong> spanning power electronics, embedded firmware, and battery systems.
+        </p>
+        <p>
+          Co-founder of <strong>Torq Drive</strong> — a direct-drive sim racing wheelbase with a custom BLDC motor and controller — and <strong>Upshift SIM</strong>, Sim Racing Equipment built from the ground up.
+        </p>
+        <p>
+          Conducting <strong>BMS/SOC/SOH algorithm research</strong> under a TÜBİTAK-funded project while mentoring two Formula Student teams. HV/LV/Battery scrutineer at <strong>FSCzech 2026 and FSTurkiye 2025+</strong>.
+        </p>
+        <p>
+   Internships at <strong>Baykar Technology</strong> and <strong>Ford Otosan</strong>. Long-term goal: Always Shoot for the Moon.
+        </p>
+      </div>
+      <div class="about-facts reveal visible">
+        <div class="fact-row">
+          <span class="fact-key">Location</span>
+          <span class="fact-val">Turkey → Europe</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-key">Degree</span>
+          <span class="fact-val">Mechanical Eng. (Final Year)</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-key">Internships</span>
+          <span class="fact-val">Baykar · Ford Otosan</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-key">Research</span>
+          <span class="fact-val">TÜBİTAK</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-key">Formula Student</span>
+          <span class="fact-val">HV and Battery Scrutineer</span>
+        </div>
+        
+        <div class="fact-row">
+          <span class="fact-key">Mentorship</span>
+          <span class="fact-val">Student Teams from across the country</span>
+        </div><div class="fact-row">
+          <span class="fact-key">Languages</span>
+          <span class="fact-val">Turkish · English</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">04 — Contact</div>
+    <div class="contact-grid reveal visible">
+      <a href="https://github.com/Racetro" class="contact-card" target="_blank">
+        <div class="contact-icon">G</div>
+        <div class="contact-platform">GitHub</div>
+        <div class="contact-handle">@Racetro</div>
+      </a>
+      <a href="https://www.linkedin.com/in/ozkan-yusuf" class="contact-card" target="_blank">
+        <div class="contact-icon">in</div>
+        <div class="contact-platform">LinkedIn</div>
+        <div class="contact-handle">/in/ozkan-yusuf</div>
+      </a>
+      <a href="mailto:yusuf.ozkan.se@outlook.com" class="contact-card">
+        <div class="contact-icon">◎</div>
+        <div class="contact-platform">Email</div>
+        <div class="contact-handle">yusuf.ozkan.se@outlook.com</div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Muhammet Yusuf ÖZKAN</span>
+    <span>Built with HTML · Hosted on GitHub Pages</span>
+  </footer>
+
+  <script>
+    // Cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX - 3 + 'px';
+      cursor.style.top  = e.clientY - 3 + 'px';
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+
+</body></html>
